@@ -1,7 +1,7 @@
 .toolbar {
 
     &__title {
-        font-size: 24px;
+        font-size: 18px;
         text-transform: uppercase;
         letter-spacing: 1.5px;
     }
@@ -9,4 +9,9 @@
 
 .content {
    --background: var(--ion-background-color);
+
+   &__grid {
+       margin-top: 20px;
+   }
+
 }

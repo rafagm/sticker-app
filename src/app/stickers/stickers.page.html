@@ -4,10 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="content">
-  <ion-grid >
+<ion-content class="content ion-padding">
+  <ion-grid class="content__grid">
     <ion-row>
       <ion-col>
+        <ion-list class="content__list" lines="none">
+          <app-sticker-list-item *ngFor="let sticker of stickers" [stickers]=sticker class="content__list__item" (click)="onItemClicked(sticker.id)"></app-sticker-list-item>
+        </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>

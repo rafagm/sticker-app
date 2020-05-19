@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { StickersPageRoutingModule } from './stickers-routing.module';
 
 import { StickersPage } from './stickers.page';
+import { StickerListItemComponent } from './sticker-item/sticker-item/sticker-list-item.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { StickersPage } from './stickers.page';
     IonicModule,
     StickersPageRoutingModule
   ],
-  declarations: [StickersPage]
+  declarations: [StickersPage, StickerListItemComponent]
 })
 export class StickersPageModule {}

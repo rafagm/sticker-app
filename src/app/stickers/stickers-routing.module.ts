@@ -7,6 +7,15 @@ const routes: Routes = [
   {
     path: '',
     component: StickersPage
+  },
+  {
+    path: 'sticker-details',
+    children: [
+      {
+        path: ":stickerListId",
+        loadChildren: () => import('./sticker-details/sticker-details/sticker-details.module').then( m => m.StickerDetailsPageModule)
+      }
+    ]
   }
 ];
 

@@ -1,0 +1,12 @@
+<ion-item class="sticker__item" >
+  <ion-avatar slot="start" class="sticker__item__avatar">
+    <img [src]=stickers.imageUrl >
+  </ion-avatar>
+  <ion-label class="sticker__item__text">
+    <h1>
+      {{ stickers.name }}
+    </h1>
+  </ion-label>
+  <ion-icon *ngIf="!added" name="add-circle-outline" slot="end" class="sticker__item__icon--add" ></ion-icon>
+  <ion-icon *ngIf="added" name="close-outline" slot="end" class="sticker__item__icon--remove" ></ion-icon>
+</ion-item>

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  stickerPath: "src/assets/stickers"
+  stickerPath: "../../../../assets/stickers"
 };
 
 /*
