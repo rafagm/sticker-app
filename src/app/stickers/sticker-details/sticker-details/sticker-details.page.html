@@ -1,33 +1,41 @@
-<ion-header >
-  <ion-toolbar class="toolbar"  mode="ios">
+<ion-header>
+  <ion-toolbar
+    class="toolbar"
+    mode="ios">
     <ion-buttons slot="start">
-      <ion-back-button  defaultHref="stickers" class="toolbar__backbutton"></ion-back-button>
+      <ion-back-button
+        defaultHref="stickers"
+        class="toolbar__backbutton"></ion-back-button>
     </ion-buttons>
     <ion-title class="toolbar__title">{{ stickerList.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content class="content">
   <div class="content__container">
-    <div class="content__chatbox">
+    <div class="content__chatbox" #contentChatbox>
       <div class="content__chatbox__stickers">
+        <img
+          *ngFor="let sticker of selectedStickers"
+          [src]=sticker.imageUrl
+          class="content__chatbox__stickers__img">
       </div>
     </div>
     <div class="content__stickerbox">
       <div class="content__stickerbox__header">
-            <img [src]="stickerList.imageUrl" class="content__stickerbox__header__img">
-            <div class="content__stickerbox__header__text">
-              Select sticker to preview
-            </div>
+        <img
+          [src]="stickerList.imageUrl"
+          class="content__stickerbox__header__img">
+        <div class="content__stickerbox__header__text">Select sticker to preview</div>
       </div>
       <div class="content__stickerbox__stickers">
-          <ion-img *ngFor="let sticker of stickerList.stickers" 
-          [src]=sticker.imageUrl 
-          class="content__stickerbox__stickers__img">
+        <ion-img
+          *ngFor="let sticker of stickerList.stickers"
+          [src]="sticker.imageUrl"
+          class="content__stickerbox__stickers__img"
+          (click)="onSelectSticker(sticker.name)">
         </ion-img>
       </div>
-      <div class="content__stickerbox__footer">
-
-      </div>
+      <div class="content__stickerbox__footer"></div>
     </div>
 
   </div>
