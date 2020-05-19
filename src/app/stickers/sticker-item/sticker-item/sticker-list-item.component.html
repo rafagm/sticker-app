@@ -1,6 +1,8 @@
-<ion-item class="sticker__item" >
+<ion-item class="sticker__item  ion-activatable ripple-parent">
   <ion-avatar slot="start" class="sticker__item__avatar">
     <img [src]=stickers.imageUrl >
+    
+  <ion-ripple-effect></ion-ripple-effect>
   </ion-avatar>
   <ion-label class="sticker__item__text">
     <h1>
@@ -9,4 +11,5 @@
   </ion-label>
   <ion-icon *ngIf="!added" name="add-circle-outline" slot="end" class="sticker__item__icon--add" ></ion-icon>
   <ion-icon *ngIf="added" name="close-outline" slot="end" class="sticker__item__icon--remove" ></ion-icon>
+  <ion-ripple-effect></ion-ripple-effect>
 </ion-item>
