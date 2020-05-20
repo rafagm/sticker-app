@@ -182,6 +182,10 @@ task cdvPrintProps {
 }
 
 android {
+    aaptOptions {
+        noCompress "webp"
+    }
+
     defaultConfig {
         versionCode cdvVersionCode ?: new BigInteger("" + privateHelpers.extractIntFromManifest("versionCode"))
         applicationId privateHelpers.extractStringFromManifest("package")
@@ -197,6 +201,10 @@ android {
         if(cdvTargetSdkVersion != null) {
             targetSdkVersion cdvTargetSdkVersion
         }
+
+        def contentProviderAuthority = applicationId + ".stickercontentprovider" 
+        manifestPlaceholders = [contentProviderAuthority: contentProviderAuthority]
+        buildConfigField "String", "CONTENT_PROVIDER_AUTHORITY", "\" $ {contentProviderAuthority} \ "
     }
 
     lintOptions {
@@ -294,6 +302,7 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
     implementation "androidx.annotation:annotation:1.0.0"
+    implementation "androidx.core:core:1.1.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 
