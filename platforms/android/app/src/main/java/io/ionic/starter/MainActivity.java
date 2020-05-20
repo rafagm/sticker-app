@@ -31,8 +31,6 @@ public class MainActivity extends CordovaActivity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-        Log.e(TAG, "init onCreate");
-
         super.onCreate(savedInstanceState);
 
         // enable Cordova apps to be started in the background
@@ -43,7 +41,5 @@ public class MainActivity extends CordovaActivity
 
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
-
-        Log.e(TAG, "finish onCreate");
     }
 }
