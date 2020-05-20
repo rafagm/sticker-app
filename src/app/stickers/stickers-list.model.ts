@@ -1,7 +1,7 @@
 import { Sticker } from './stickers.model';
 
 export interface StickerList {
-    id: number,
+    id: string,
     name: string;
     imageUrl: string;
     stickers: Sticker[];

@@ -23,7 +23,7 @@ export class StickerService {
     return this._stickers;
   }
 
-  getStickerList(stickerListId: number) {
+  getStickerList(stickerListId: string) {
     return this._stickers.find(stickerList => stickerList.id === stickerListId);
   }
 
@@ -35,6 +35,8 @@ export class StickerService {
   }
 
   public shareWhastAppStickers(packId: string, packName: string): void {
+    
+    
     this.webIntent.startActivity({
             action: 'com.whatsapp.intent.action.ENABLE_STICKER_PACK',
             extras: {
@@ -50,11 +52,11 @@ export class StickerService {
         })
         .then(success => {
             // Esse código é chamado quando tudo ocorre sem problemas.
-            console.log("succes: ",success);
+            console.log("succes call sticker share: ",success);
         })
         .catch(error => {
             // Caso ocorra algum erro, por exemplo, se o usuário não possui o WhatsApp instalado, esse código será chamado.
-            console.log("error ", error);
+            console.log("error call sticker share", error);
         });
   }  
 

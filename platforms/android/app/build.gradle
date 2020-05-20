@@ -204,7 +204,7 @@ android {
 
         def contentProviderAuthority = applicationId + ".stickercontentprovider" 
         manifestPlaceholders = [contentProviderAuthority: contentProviderAuthority]
-        buildConfigField "String", "CONTENT_PROVIDER_AUTHORITY", "\" $ {contentProviderAuthority} \ "
+        buildConfigField "String", "CONTENT_PROVIDER_AUTHORITY", "\"${contentProviderAuthority}\""
     }
 
     lintOptions {

@@ -22,11 +22,17 @@ package io.ionic.starter;
 import android.os.Bundle;
 import org.apache.cordova.*;
 
+import android.util.Log;
+
 public class MainActivity extends CordovaActivity
 {
+    private static final String TAG = "MainActivity";
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        Log.e(TAG, "init onCreate");
+
         super.onCreate(savedInstanceState);
 
         // enable Cordova apps to be started in the background
@@ -37,5 +43,7 @@ public class MainActivity extends CordovaActivity
 
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
+
+        Log.e(TAG, "finish onCreate");
     }
 }

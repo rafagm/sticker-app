@@ -18,11 +18,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import android.util.Log;
 
 class ContentFileParser {
+    private static final String TAG = "ContentFileParser";
 
     @NonNull
     static List<StickerPack> parseStickerPacks(@NonNull InputStream contentsInputStream) throws IOException, IllegalStateException {
+        Log.e(TAG, "init parseStickerPacks");
         try (JsonReader reader = new JsonReader(new InputStreamReader(contentsInputStream))) {
             return readStickerPacks(reader);
         }
@@ -30,6 +33,8 @@ class ContentFileParser {
 
     @NonNull
     private static List<StickerPack> readStickerPacks(@NonNull JsonReader reader) throws IOException, IllegalStateException {
+        Log.e(TAG, "init readStickerPacks");
+
         List<StickerPack> stickerPackList = new ArrayList<>();
         String androidPlayStoreLink = null;
         String iosAppStoreLink = null;
@@ -59,11 +64,15 @@ class ContentFileParser {
             stickerPack.setAndroidPlayStoreLink(androidPlayStoreLink);
             stickerPack.setIosAppStoreLink(iosAppStoreLink);
         }
+        Log.e(TAG, "fin readStickerPacks");
         return stickerPackList;
+
     }
 
     @NonNull
     private static StickerPack readStickerPack(@NonNull JsonReader reader) throws IOException, IllegalStateException {
+        Log.e(TAG, "init readStickerPack");
+
         reader.beginObject();
         String identifier = null;
         String name = null;
@@ -140,18 +149,22 @@ class ContentFileParser {
         reader.endObject();
         final StickerPack stickerPack = new StickerPack(identifier, name, publisher, trayImageFile, publisherEmail, publisherWebsite, privacyPolicyWebsite, licenseAgreementWebsite, imageDataVersion, avoidCache);
         stickerPack.setStickers(stickerList);
+        Log.e(TAG, "fin readStickerPack");
         return stickerPack;
+
     }
 
     @NonNull
     private static List<Sticker> readStickers(@NonNull JsonReader reader) throws IOException, IllegalStateException {
+        Log.e(TAG, "init readStickers");
+
         reader.beginArray();
         List<Sticker> stickerList = new ArrayList<>();
 
         while (reader.hasNext()) {
             reader.beginObject();
             String imageFile = null;
-            List<String> emojis = new ArrayList<>(StickerPackValidator.EMOJI_MAX_LIMIT);
+            List<String> emojis = new ArrayList<>(3);
             while (reader.hasNext()) {
                 final String key = reader.nextName();
                 if ("image_file".equals(key)) {
@@ -182,6 +195,9 @@ class ContentFileParser {
             stickerList.add(new Sticker(imageFile, emojis));
         }
         reader.endArray();
+
+        Log.e(TAG, "fin readStickers");
         return stickerList;
+
     }
 }
