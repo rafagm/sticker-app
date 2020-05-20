@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { WebIntent } from "@ionic-native/web-intent"
+import { WebIntent } from '@ionic-native/web-intent/ngx'
 
 @NgModule({
   declarations: [AppComponent],
